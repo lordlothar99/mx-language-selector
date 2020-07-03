@@ -20,7 +20,7 @@ public class LanguageItem
 	 */
 	public enum MemberNames
 	{
-		Code("Code"),
+		Value("Value"),
 		LanguageItem_Language("LanguageSelector.LanguageItem_Language");
 
 		private java.lang.String metaName;
@@ -117,39 +117,39 @@ public class LanguageItem
 		com.mendix.core.Core.delete(context, getMendixObject());
 	}
 	/**
-	 * @return value of Code
+	 * @return value of Value
 	 */
-	public final java.lang.String getCode()
+	public final java.lang.String getValue()
 	{
-		return getCode(getContext());
+		return getValue(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of Code
+	 * @return value of Value
 	 */
-	public final java.lang.String getCode(com.mendix.systemwideinterfaces.core.IContext context)
+	public final java.lang.String getValue(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		return (java.lang.String) getMendixObject().getValue(context, MemberNames.Code.toString());
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.Value.toString());
 	}
 
 	/**
-	 * Set value of Code
-	 * @param code
+	 * Set value of Value
+	 * @param value
 	 */
-	public final void setCode(java.lang.String code)
+	public final void setValue(java.lang.String value)
 	{
-		setCode(getContext(), code);
+		setValue(getContext(), value);
 	}
 
 	/**
-	 * Set value of Code
+	 * Set value of Value
 	 * @param context
-	 * @param code
+	 * @param value
 	 */
-	public final void setCode(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String code)
+	public final void setValue(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String value)
 	{
-		getMendixObject().setValue(context, MemberNames.Code.toString(), code);
+		getMendixObject().setValue(context, MemberNames.Value.toString(), value);
 	}
 
 	/**

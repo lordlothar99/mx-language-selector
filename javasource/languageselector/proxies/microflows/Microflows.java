@@ -26,10 +26,10 @@ public class Microflows
 		IMendixObject result = (IMendixObject)Core.microflowCall("LanguageSelector.DS__LanguageSelector").withParams(params).execute(context);
 		return result == null ? null : languageselector.proxies.LanguageSelector.initialize(context, result);
 	}
-	public static languageselector.proxies.LanguageItem sUB__GetLanguageItem_by_SysLanguage(IContext context, system.proxies.Language _sysLanguage)
+	public static languageselector.proxies.LanguageItem sUB__GetLanguageItem_by_SysLanguage(IContext context, system.proxies.Language _systemLanguage)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("SysLanguage", _sysLanguage == null ? null : _sysLanguage.getMendixObject());
+		params.put("SystemLanguage", _systemLanguage == null ? null : _systemLanguage.getMendixObject());
 		IMendixObject result = (IMendixObject)Core.microflowCall("LanguageSelector.SUB__GetLanguageItem_by_SysLanguage").withParams(params).execute(context);
 		return result == null ? null : languageselector.proxies.LanguageItem.initialize(context, result);
 	}
