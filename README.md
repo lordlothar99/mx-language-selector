@@ -16,4 +16,5 @@ This module is a ready-to-use 'Language Selector' drop-down widget which you can
 Community Commons
 
 ## Mendix version
-8+
+* 8+ : 1.x.x
+* 9+ : 2.x.x
