@@ -3,3 +3,4 @@ deployment
 /.classpath
 /.project
 /LanguageSelector.mpr.lock
+/releases
