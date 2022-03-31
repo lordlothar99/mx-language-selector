@@ -4,3 +4,17 @@ deployment
 /.project
 /LanguageSelector.mpr.lock
 /releases
+/*.launch
+/deployment/
+/packages/
+/releases/
+/.mendix-cache/
+/languageselector.mpr.bak
+/languageselector.mpr.lock
+/modeler-merge-marker
+/project-settings.user.json
+/javasource/*/proxies/
+/javasource/system/
+/**/node_modules/
+!/javascriptsource/**/node_modules/
+/nativemobile/builds/

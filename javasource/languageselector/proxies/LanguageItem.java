@@ -23,7 +23,7 @@ public class LanguageItem
 		Value("Value"),
 		LanguageItem_Language("LanguageSelector.LanguageItem_Language");
 
-		private java.lang.String metaName;
+		private final java.lang.String metaName;
 
 		MemberNames(java.lang.String s)
 		{
@@ -39,15 +39,17 @@ public class LanguageItem
 
 	public LanguageItem(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		this(context, com.mendix.core.Core.instantiate(context, "LanguageSelector.LanguageItem"));
+		this(context, com.mendix.core.Core.instantiate(context, entityName));
 	}
 
 	protected LanguageItem(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject languageItemMendixObject)
 	{
-		if (languageItemMendixObject == null)
+		if (languageItemMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
-		if (!com.mendix.core.Core.isSubClassOf("LanguageSelector.LanguageItem", languageItemMendixObject.getType()))
-			throw new java.lang.IllegalArgumentException("The given object is not a LanguageSelector.LanguageItem");
+		}
+		if (!com.mendix.core.Core.isSubClassOf(entityName, languageItemMendixObject.getType())) {
+			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
+		}	
 
 		this.languageItemMendixObject = languageItemMendixObject;
 		this.context = context;
@@ -65,6 +67,9 @@ public class LanguageItem
 	/**
 	 * Initialize a proxy using context (recommended). This context will be used for security checking when the get- and set-methods without context parameters are called.
 	 * The get- and set-methods with context parameter should be used when for instance sudo access is necessary (IContext.createSudoClone() can be used to obtain sudo access).
+	 * @param context The context to be used
+	 * @param mendixObject The Mendix object for the new instance
+	 * @return a new instance of this proxy class
 	 */
 	public static languageselector.proxies.LanguageItem initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
@@ -79,14 +84,16 @@ public class LanguageItem
 
 	public static java.util.List<languageselector.proxies.LanguageItem> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
 	{
-		java.util.List<languageselector.proxies.LanguageItem> result = new java.util.ArrayList<languageselector.proxies.LanguageItem>();
-		for (com.mendix.systemwideinterfaces.core.IMendixObject obj : com.mendix.core.Core.retrieveXPathQuery(context, "//LanguageSelector.LanguageItem" + xpathConstraint))
-			result.add(languageselector.proxies.LanguageItem.initialize(context, obj));
-		return result;
+		return com.mendix.core.Core.createXPathQuery(String.format("//%1$s%2$s", entityName, xpathConstraint))
+			.execute(context)
+			.stream()
+			.map(obj -> languageselector.proxies.LanguageItem.initialize(context, obj))
+			.collect(java.util.stream.Collectors.toList());
 	}
 
 	/**
 	 * Commit the changes made on this proxy object.
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final void commit() throws com.mendix.core.CoreException
 	{
@@ -95,6 +102,7 @@ public class LanguageItem
 
 	/**
 	 * Commit the changes made on this proxy object using the specified context.
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final void commit(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
@@ -153,6 +161,7 @@ public class LanguageItem
 	}
 
 	/**
+	 * @throws com.mendix.core.CoreException
 	 * @return value of LanguageItem_Language
 	 */
 	public final system.proxies.Language getLanguageItem_Language() throws com.mendix.core.CoreException
@@ -163,13 +172,15 @@ public class LanguageItem
 	/**
 	 * @param context
 	 * @return value of LanguageItem_Language
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final system.proxies.Language getLanguageItem_Language(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
 		system.proxies.Language result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.LanguageItem_Language.toString());
-		if (identifier != null)
+		if (identifier != null) {
 			result = system.proxies.Language.load(context, identifier);
+		}
 		return result;
 	}
 
@@ -189,10 +200,11 @@ public class LanguageItem
 	 */
 	public final void setLanguageItem_Language(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.Language languageitem_language)
 	{
-		if (languageitem_language == null)
+		if (languageitem_language == null) {
 			getMendixObject().setValue(context, MemberNames.LanguageItem_Language.toString(), null);
-		else
+		} else {
 			getMendixObject().setValue(context, MemberNames.LanguageItem_Language.toString(), languageitem_language.getMendixObject().getId());
+		}
 	}
 
 	/**
@@ -214,9 +226,9 @@ public class LanguageItem
 	@java.lang.Override
 	public boolean equals(Object obj)
 	{
-		if (obj == this)
+		if (obj == this) {
 			return true;
-
+		}
 		if (obj != null && getClass().equals(obj.getClass()))
 		{
 			final languageselector.proxies.LanguageItem that = (languageselector.proxies.LanguageItem) obj;
@@ -236,7 +248,7 @@ public class LanguageItem
 	 */
 	public static java.lang.String getType()
 	{
-		return "LanguageSelector.LanguageItem";
+		return entityName;
 	}
 
 	/**

@@ -23,7 +23,7 @@ public class LanguageSelector
 		LanguageSelector_LanguageItem("LanguageSelector.LanguageSelector_LanguageItem"),
 		LanguageSelector_User("LanguageSelector.LanguageSelector_User");
 
-		private java.lang.String metaName;
+		private final java.lang.String metaName;
 
 		MemberNames(java.lang.String s)
 		{
@@ -39,15 +39,17 @@ public class LanguageSelector
 
 	public LanguageSelector(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		this(context, com.mendix.core.Core.instantiate(context, "LanguageSelector.LanguageSelector"));
+		this(context, com.mendix.core.Core.instantiate(context, entityName));
 	}
 
 	protected LanguageSelector(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject languageSelectorMendixObject)
 	{
-		if (languageSelectorMendixObject == null)
+		if (languageSelectorMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
-		if (!com.mendix.core.Core.isSubClassOf("LanguageSelector.LanguageSelector", languageSelectorMendixObject.getType()))
-			throw new java.lang.IllegalArgumentException("The given object is not a LanguageSelector.LanguageSelector");
+		}
+		if (!com.mendix.core.Core.isSubClassOf(entityName, languageSelectorMendixObject.getType())) {
+			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
+		}	
 
 		this.languageSelectorMendixObject = languageSelectorMendixObject;
 		this.context = context;
@@ -65,6 +67,9 @@ public class LanguageSelector
 	/**
 	 * Initialize a proxy using context (recommended). This context will be used for security checking when the get- and set-methods without context parameters are called.
 	 * The get- and set-methods with context parameter should be used when for instance sudo access is necessary (IContext.createSudoClone() can be used to obtain sudo access).
+	 * @param context The context to be used
+	 * @param mendixObject The Mendix object for the new instance
+	 * @return a new instance of this proxy class
 	 */
 	public static languageselector.proxies.LanguageSelector initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
@@ -79,6 +84,7 @@ public class LanguageSelector
 
 	/**
 	 * Commit the changes made on this proxy object.
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final void commit() throws com.mendix.core.CoreException
 	{
@@ -87,6 +93,7 @@ public class LanguageSelector
 
 	/**
 	 * Commit the changes made on this proxy object using the specified context.
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final void commit(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
@@ -109,6 +116,7 @@ public class LanguageSelector
 		com.mendix.core.Core.delete(context, getMendixObject());
 	}
 	/**
+	 * @throws com.mendix.core.CoreException
 	 * @return value of LanguageSelector_LanguageItem
 	 */
 	public final languageselector.proxies.LanguageItem getLanguageSelector_LanguageItem() throws com.mendix.core.CoreException
@@ -119,13 +127,15 @@ public class LanguageSelector
 	/**
 	 * @param context
 	 * @return value of LanguageSelector_LanguageItem
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final languageselector.proxies.LanguageItem getLanguageSelector_LanguageItem(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
 		languageselector.proxies.LanguageItem result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.LanguageSelector_LanguageItem.toString());
-		if (identifier != null)
+		if (identifier != null) {
 			result = languageselector.proxies.LanguageItem.load(context, identifier);
+		}
 		return result;
 	}
 
@@ -145,13 +155,15 @@ public class LanguageSelector
 	 */
 	public final void setLanguageSelector_LanguageItem(com.mendix.systemwideinterfaces.core.IContext context, languageselector.proxies.LanguageItem languageselector_languageitem)
 	{
-		if (languageselector_languageitem == null)
+		if (languageselector_languageitem == null) {
 			getMendixObject().setValue(context, MemberNames.LanguageSelector_LanguageItem.toString(), null);
-		else
+		} else {
 			getMendixObject().setValue(context, MemberNames.LanguageSelector_LanguageItem.toString(), languageselector_languageitem.getMendixObject().getId());
+		}
 	}
 
 	/**
+	 * @throws com.mendix.core.CoreException
 	 * @return value of LanguageSelector_User
 	 */
 	public final system.proxies.User getLanguageSelector_User() throws com.mendix.core.CoreException
@@ -162,13 +174,15 @@ public class LanguageSelector
 	/**
 	 * @param context
 	 * @return value of LanguageSelector_User
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final system.proxies.User getLanguageSelector_User(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
 		system.proxies.User result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.LanguageSelector_User.toString());
-		if (identifier != null)
+		if (identifier != null) {
 			result = system.proxies.User.load(context, identifier);
+		}
 		return result;
 	}
 
@@ -188,10 +202,11 @@ public class LanguageSelector
 	 */
 	public final void setLanguageSelector_User(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.User languageselector_user)
 	{
-		if (languageselector_user == null)
+		if (languageselector_user == null) {
 			getMendixObject().setValue(context, MemberNames.LanguageSelector_User.toString(), null);
-		else
+		} else {
 			getMendixObject().setValue(context, MemberNames.LanguageSelector_User.toString(), languageselector_user.getMendixObject().getId());
+		}
 	}
 
 	/**
@@ -213,9 +228,9 @@ public class LanguageSelector
 	@java.lang.Override
 	public boolean equals(Object obj)
 	{
-		if (obj == this)
+		if (obj == this) {
 			return true;
-
+		}
 		if (obj != null && getClass().equals(obj.getClass()))
 		{
 			final languageselector.proxies.LanguageSelector that = (languageselector.proxies.LanguageSelector) obj;
@@ -235,7 +250,7 @@ public class LanguageSelector
 	 */
 	public static java.lang.String getType()
 	{
-		return "LanguageSelector.LanguageSelector";
+		return entityName;
 	}
 
 	/**
