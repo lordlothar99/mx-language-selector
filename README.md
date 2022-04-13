@@ -12,9 +12,6 @@ This module is a ready-to-use 'Language Selector' drop-down widget which you can
 * The dropdown works with anonymous users too
 * Feel free to download the project from [Github](https://github.com/lordlothar99/mx-language-selector), there's a runnable demo inside
 
-## Dependencies
-Community Commons
-
-## Mendix version
-* 8+ : 1.x.x
-* 9+ : 2.x.x
+## Versions
+* Version 1.x.x : Mendix 8+
+* Version 2.x.x : Mendix 9+
