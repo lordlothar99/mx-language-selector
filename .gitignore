@@ -6,9 +6,6 @@ deployment
 /releases
 /*.launch
 /deployment/
-/packages/
-/releases/
-/.mendix-cache/
 /languageselector.mpr.bak
 /languageselector.mpr.lock
 /modeler-merge-marker
