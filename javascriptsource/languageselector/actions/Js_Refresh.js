@@ -16,16 +16,10 @@ import { Big } from "big.js";
  */
 export async function Js_Refresh() {
 	// BEGIN USER CODE
-	try {
-		console.debug('Reloading ...');
-		//mx.reloadWithState();
-		window.location = window.location.href;
-		console.debug('Reloaded succesfully');
-	} catch (error) {
-		console.warn('Unable to reload the page : ' + error);
+	return new Promise(resolve => {
 		console.debug('Refreshing ...');
 		window.location = window.location.href;
 		console.debug('Refreshed succesfully');
-	}
+    });
 	// END USER CODE
 }

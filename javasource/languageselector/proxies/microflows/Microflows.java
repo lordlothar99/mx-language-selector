@@ -39,6 +39,12 @@ public class Microflows
 		IMendixObject result = (IMendixObject)Core.microflowCall("LanguageSelector.SUB__GetLanguageItem_by_SysLanguage").withParams(params).execute(context);
 		return result == null ? null : languageselector.proxies.LanguageItem.initialize(context, result);
 	}
+	public static void sUB__LoadLanguageItems(IContext context, boolean _retainLast2Chars)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("RetainLast2Chars", _retainLast2Chars);
+		Core.microflowCall("LanguageSelector.SUB__LoadLanguageItems").withParams(params).execute(context);
+	}
 	public static boolean sUB__SwitchLanguage(IContext context, system.proxies.Language _newSystemLanguage)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();

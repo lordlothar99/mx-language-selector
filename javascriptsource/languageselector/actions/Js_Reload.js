@@ -14,12 +14,22 @@ import { Big } from "big.js";
 /**
  * @returns {Promise.<void>}
  */
-export async function Js_ReloadWithState() {
+export async function Js_Reload() {
 	// BEGIN USER CODE
 	return new Promise(resolve => {
-		console.debug('Reloading with state ...');
-		mx.reloadWithState();
-		console.debug('Reloaded with state succesfully');
+		console.debug('Reloading ...');
+		let contentForm = window.mx.ui.getContentForm();
+		let reloadObject = {
+			page: {
+				path: contentForm.path,
+				trackId: contentForm.getContext().getTrackId(),
+				title: contentForm.title
+			},
+			cache: window.mx.data.dehydrateCache()
+		};
+		window.sessionStorage.setItem('mx.reload', JSON.stringify(reloadObject));
+		window.mx.reload();
+		console.debug('Reloaded succesfully');
     });
 	// END USER CODE
 }
